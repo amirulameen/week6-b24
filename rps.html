@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+          .button{
+                 background-color: grey;
+                 color: black;
+                 padding: 0.5em;
+                 font-size: 1em;
+                 display: inline-block;
+                 width: 9rem;
+                 }           
+    </style>
+</head>
+
+<body>    
+    <div class="card">
+    <h1 class="text-center">Rock Paper Scissors</h1>
+    <h2> Choose your weapon </h2>
+    <h3 id="score"></h3>
+    <p id="message"></p>
+    <br>
+    <button onclick="select('Rock')" class="button">Rock</button>  
+    <button onclick="select('Paper')" class="button">Paper</button>
+    <button onclick="select('Scissors')" class="button">Scissors</button>
+    </div>
+
+    <script type="text/javascript">
+
+       var myScore = 0;
+       var compScore = 0;
+
+         function select(weapon){ 
+       var weapons =["Rock","Paper","Scissors"]
+
+            var computerSelection = Math.floor(Math.random()*3)
+            
+            var compWeapon = weapons[computerSelection]
+           
+            if (weapon=="Rock"){
+                if(compWeapon == "Rock"){
+
+                    document.getElementById("message").innerHTML = "Computer select " + compWeapon
+                document.getElementById("score").innerHTML = "It's a draw!!Your score is "+myScore+ " : "+" Computer score is "+ compScore+" ."
+                }
+
+                else if (compWeapon == "Paper"){
+                compScore++;
+
+                 document.getElementById("message").innerHTML = "Computer select " + compWeapon ;
+                 document.getElementById("score").innerHTML = "You lose!!Your score is "+myScore +" : " +" Computer score is "+ compScore+" ."
+                     
+
+                }else{
+                myScore++;
+
+                 document.getElementById("message").innerHTML = "Computer select " + compWeapon ;
+                 document.getElementById("score").innerHTML = "You win!!.You score is "+ myScore+" : Computer Score "+ compScore ;
+                     
+                }
+
+
+           }
+           if (weapon == "Paper"){
+
+
+                if(compWeapon=="Rock"){
+                myScore++;
+
+                document.getElementById("message").innerHTML = "Computer select " + compWeapon;
+                 document.getElementById("score").innerHTML = "You win!!.You score is "+ myScore+" : Computer Score "+ compScore;            
+              }
+
+                else if (compWeapon=="Paper"){
+                  document.getElementById("message").innerHTML = "Computer select "+ compWeapon;
+                 document.getElementById("score").innerHTML = "It's a draw!!Your score is "+myScore + " : " +" Computer score is "+ compScore+" ."
+                
+                }
+                else {
+                 compScore++;
+                  document.getElementById("message").innerHTML = "Computer select " + compWeapon ;
+                 document.getElementById("score").innerHTML = "You lose!!Your score is "+myScore + " : " +" Computer score is "+ compScore+" ."
+              
+                     }
+              }
+           if (weapon == "Scissors") {
+                 if(compWeapon=="Rock"){
+                  compScore++;
+                  document.getElementById("message").innerHTML = "Computer select " + compWeapon;
+                 document.getElementById("score").innerHTML = "You lose!!Your score is "+myScore +" : " +" Computer score is "+ compScore+" ."
+                 }
+
+                else if (compWeapon=="Paper"){
+
+              
+                 myScore++;
+
+                document.getElementById("message").innerHTML = "Computer select " + compWeapon;
+                 document.getElementById("score").innerHTML = "You win!!.You score is "+ myScore+" : Computer Score "+ compScore;   
+                }
+                else {
+                 document.getElementById("message").innerHTML = "Computer select " + compWeapon
+                document.getElementById("score").innerHTML = "It's a draw!!Your score is "+myScore + " : " +" Computer score is "+ compScore+" ."
+                }
+                }
+              }
+
+
+    </script>
+</body>
+</html>
